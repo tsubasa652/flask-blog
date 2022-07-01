@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>編集 | Flask Blog</title>
+    <link href="css/index.css" rel="stylesheet">
+    <script src="js/index.js"></script>
+    <script>
+        function parseQuery(){
+            var query = location.search.substring(1)
+            var params = query.split("&")
+            var result = {}
+            for(var param of params){
+                var key_value = param.split("=")
+                result[key_value[0]] = key_value[1]
+            }
+            return result
+        }
+        const query = parseQuery()
+        window.addEventListener("load", function(){
+            const form = document.getElementById("article-form")
+            if(!query["id"] || query["id"] == ""){
+                return location.href = "/"
+            }
+            getArticle(query.id).then(function(res){
+                if(res.result){
+                    form.querySelector("input[name='title']").value = res.article.title
+                    form.querySelector("textarea[name='body']").value = res.article.body
+                }else{
+                    alert(res.message)
+                    location.href = "/"
+                }
+            })
+            form.addEventListener("submit", function(e){
+                e.preventDefault()
+                const title = e.target.querySelector("input[name='title']").value
+                const body = e.target.querySelector("textarea[name='body']").value
+                updateArticle(query["id"], title, body).then(function(res){
+                    if(res.result){
+                        location.href = "/"
+                    }else{
+                        alert(res.message)
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <header class="flex">
+        <h1>Flask Blog</h1>
+        <a class="new-article" href="/post.html">
+            <button>新規投稿</button>
+        </a>
+    </header>
+    <main>
+        <h2>編集</h2>
+        <form id="article-form">
+            <label>タイトル：</label>
+            <input type="text" name="title" placeholder="タイトルを入力してください">
+            <br>
+            <label>本文：</label>
+            <textarea name="body" placeholder="本文を入力してください"></textarea>
+            <br>
+            <button type="submit">投稿</button>
+        </form>
+    </main>
+    <footer>
+        <p>Copyright © Year YourName All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Blog</title>
+    <link href="css/index.css" rel="stylesheet">
+    <script src="js/index.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+            const Article = document.getElementById('article')
+            const Articles = document.getElementById('articles')
+            getArticles().then(articles => {
+                for(var article of articles){
+                    var article_div = Article.content.cloneNode(true)
+                    article_div.querySelector(".article-title").innerText = article.title
+                    article_div.querySelector(".article-body-short").innerText = article.body
+                    article_div.querySelector(".article-create").innerText = toDateString(article.created_at)
+                    if(article.updated_at != null){
+                        article_div.querySelector(".article-update").innerText = toDateString(article.updated_at)
+                    }
+                    article_div.querySelector(".article-detail a").href = "article.html?id=" + article.id
+                    article_div.querySelector(".edit").href = "update.html?id=" + article.id
+                    article_div.querySelector(".delete").href = "delete.html?id=" + article.id
+                    Articles.appendChild(article_div)
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <header class="flex">
+        <h1>Flask Blog</h1>
+        <a class="new-article" href="/post.html">
+            <button>新規投稿</button>
+        </a>
+    </header>
+    <main>
+        <div id="articles">
+            <template id="article">
+                <div class="article">
+                    <div class="article-info flex">
+                        <h2 class="article-title"></h2>
+                        <div class="article-date">
+                            <label>作成日：</label>
+                            <span class="article-create"></span>
+                            <label>更新日：</label>
+                            <span class="article-update">----/--/--</span>
+                        </div>
+                    </div>
+                    <p class="article-body-short"></p>
+                    <div class="flex article-detail">
+                        <a>続きを見る</a>
+                    </div>
+                    <div class="article-footer flex">
+                        <a class="edit">
+                            <button class="btn-edit">編集</button>
+                        </a>
+                        <a class="delete">
+                            <button class="btn-delete">削除</button>
+                        </a>
+                    </div>
+                    <hr>
+                </div>
+            </template>
+        </div>
+    </main>
+    <footer>
+        <p>Copyright © Year YourName All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

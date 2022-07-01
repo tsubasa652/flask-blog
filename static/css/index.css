@@ -1,0 +1,25 @@
+header, main, footer{
+    width: 100%;
+}
+footer{
+    text-align: center;
+}
+.flex{
+    display: flex;
+    align-items: center;
+}
+.new-article, .article-date{
+    margin-left: auto;
+}
+.article-detail{
+    justify-content: flex-end;
+}
+.article-body-short{
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.article-body{
+    word-break: normal;
+}

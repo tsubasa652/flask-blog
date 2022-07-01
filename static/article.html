@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Blog</title>
+    <link href="css/index.css" rel="stylesheet">
+    <script src="js/index.js"></script>
+    <script>
+        function parseQuery(){
+            var query = location.search.substring(1)
+            var params = query.split("&")
+            var result = {}
+            for(var param of params){
+                var key_value = param.split("=")
+                result[key_value[0]] = key_value[1]
+            }
+            return result
+        }
+        const query = parseQuery()
+        window.addEventListener("load", function(){
+            const Article = document.getElementById('article')
+            getArticle(query["id"]).then(res => {
+                if(res.result){
+                    var article = res.article
+                    var article_div = Article.content.cloneNode(true)
+                    article_div.querySelector(".article-title").innerText = article.title
+                    article_div.querySelector(".article-body").innerText = article.body
+                    article_div.querySelector(".article-create").innerText = toDateString(article.created_at)
+                    if(article.updated_at != null){
+                        article_div.querySelector(".article-update").innerText = toDateString(article.updated_at)
+                    }
+                    article_div.querySelector(".edit").href = "update.html?id=" + article.id
+                    article_div.querySelector(".delete").href = "delete.html?id=" + article.id
+                    document.getElementsByTagName("main")[0].appendChild(article_div)
+                }else{
+                    var notfound = document.getElementById("notfound").content.cloneNode(true)
+                    document.getElementsByTagName("main")[0].appendChild(notfound)
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <header class="flex">
+        <h1>Flask Blog</h1>
+        <a class="new-article" href="/post.html">
+            <button>新規投稿</button>
+        </a>
+    </header>
+    <main>
+        <template id="article">
+            <div class="article">
+                <div class="article-info flex">
+                    <h2 class="article-title"></h2>
+                    <div class="article-date">
+                        <label>作成日：</label>
+                        <span class="article-create"></span>
+                        <label>更新日：</label>
+                        <span class="article-update">----/--/--</span>
+                    </div>
+                </div>
+                <p class="article-body"></p>
+                <div class="article-footer flex">
+                    <a class="edit">
+                        <button class="btn-edit">編集</button>
+                    </a>
+                    <a class="delete">
+                        <button class="btn-delete">削除</button>
+                    </a>
+                </div>
+                <a href="/">トップページへ</a>
+                <hr>
+            </div>
+        </template>
+        <template id="notfound">
+            <h2>記事が見つかりません</h2>
+            <a href="/">トップページへ</a>
+        </template>
+    </main>
+    <footer>
+        <p>Copyright © Year YourName All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
