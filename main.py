@@ -1,4 +1,3 @@
-from crypt import methods
 from flask import Flask
 from database import create_database
 from routes.API import router as API_route
