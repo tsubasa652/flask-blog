@@ -56,14 +56,16 @@
         </a>
     </header>
     <main>
-        <h2>編集</h2>
+        <h2 class="center-text">編集</h2>
         <form id="article-form">
-            <label>タイトル：</label>
-            <input type="text" name="title" placeholder="タイトルを入力してください">
-            <br>
-            <label>本文：</label>
-            <textarea name="body" placeholder="本文を入力してください"></textarea>
-            <br>
+            <div class="flex">
+                <label>タイトル：</label>
+                <input type="text" name="title" placeholder="タイトルを入力してください">
+            </div>
+            <div class="flex">
+                <label>本文：</label>
+                <textarea name="body" placeholder="本文を入力してください"></textarea>
+            </div>
             <button type="submit">投稿</button>
         </form>
     </main>

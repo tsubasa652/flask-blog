@@ -1,8 +1,88 @@
+body{
+    margin: 0;
+}
+
 header, main, footer{
     width: 100%;
 }
-footer{
-    text-align: center;
+header{
+    background-color: #5865F2;
+    box-shadow: 0px 2px 2px 0px #00000040;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+header h1{
+    margin: 5px 10px;
+    color:white
+}
+.new-article{
+    margin-right: 10px;
+}
+.new-article button,
+.btn-edit,
+.btn-delete,
+#article-form button,
+#delete_btn,
+#cancel_btn{
+    background-color: #2EA043;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    cursor: pointer;
+    border: 0;
+    color:#ffffff;
+    width: 100px;
+    height: 30px;
+    font-size: 100%;
+}
+.new-article button:hover,
+#article-form button:hover,
+#cancel_btn:hover{
+    background-color:#278338;
+}
+.new-article button:active,
+.btn-edit:active,
+.btn-delete:active,
+#article-form button:active,
+#delete_btn:active,
+#cancel_btn:active{
+    box-shadow: none;
+}
+.btn-edit{
+    width: 60px;
+    margin-right: 10px;
+    background-color:#5865F2;
+}
+.btn-edit:hover{
+    background: #4D58CD;
+}
+.btn-delete,
+#delete_btn{
+    width: 60px;
+    background-color: #ED4245;
+}
+.btn-delete:hover,
+#delete_btn:hover{
+    background: #C53538;
+}
+
+main{
+    margin: 70px 0;
+}
+.article{
+    margin:7px 20px;
+    background-color: #5865f21d;
+    border-radius: 5px;
+    padding: 5px;
+    border:2px solid #848efd;
+    box-shadow: 0px 2px 2px 0px #00000040;
+}
+.article-title{
+    margin: 5px 0;
+}
+hr{
+    display: none;
 }
 .flex{
     display: flex;
@@ -22,4 +102,53 @@ footer{
 }
 .article-body{
     word-break: normal;
+}
+.article-footer{
+    margin-bottom: 7px;
+}
+
+.center-text,
+#article-form{
+    text-align: center;
+}
+#article-form input,
+#article-form textarea{
+    font: 15px/20px sans-serif;
+	box-sizing: border-box;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	border: 2px solid #b3b3b3;
+	border-radius: 4px;
+    margin:4px 0;
+    width: 250px;
+}
+#article-form textarea{
+    min-width: 70%;
+    height: 200px;
+}
+#article-form input:focus,
+#article-form textarea:focus{
+    border: 2px solid #2EA043;
+	outline: none;
+	box-shadow: 0 0 5px 2px #2ea043a0;
+}
+#article-form label{
+    text-align: center;
+    width: 80px;
+}
+#article-form button{
+    margin-top: 30px;
+}
+
+footer{
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(200, 244, 255);
+    z-index: 9999;
+}
+footer p{
+    margin: 3px;
 }
