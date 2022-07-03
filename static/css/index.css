@@ -47,6 +47,7 @@ header h1{
     width: 100px;
     height: 30px;
     font-size: 100%;
+    white-space: nowrap;
 }
 .new-article button:hover,
 #article-form button:hover,
@@ -92,6 +93,7 @@ main{
 }
 .article-title{
     margin: 5px 0;
+    width: 75%;
 }
 hr{
     display: none;
@@ -102,6 +104,9 @@ hr{
 }
 .new-article, .article-date{
     margin-left: auto;
+}
+.article-date{
+    width: 25%;
 }
 .article-detail{
     justify-content: flex-end;
@@ -163,4 +168,13 @@ footer{
 }
 footer p{
     margin: 3px;
+}
+
+@media screen and (max-width: 650px){
+    .article .article-info{
+        display: block;
+    }
+    .article-title,.article-date{
+        width: 100%;
+    }
 }
