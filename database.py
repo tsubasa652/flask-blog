@@ -10,7 +10,8 @@ DATABASE = 'sqlite:///article.sqlite3'
 Engine = create_engine(
     DATABASE,
     encoding="utf-8",
-    echo=False
+    echo=False,
+    connect_args={"check_same_thread": False}
 )
 
 Base = declarative_base()
