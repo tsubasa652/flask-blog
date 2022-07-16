@@ -152,10 +152,6 @@ def delete():
         }), 400
     except ArticleNotFoundError as e:
         print(e)
-        print({
-            "result": False,
-            "message": e.args[0]
-        })
         return jsonify({
             "result": False,
             "message": e.args[0]
