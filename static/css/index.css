@@ -11,7 +11,7 @@ body::-webkit-scrollbar-track {
     border-radius: 3px;
 }
 body::-webkit-scrollbar-thumb {
-    background: rgba(110, 133, 211, 0.757);
+    background: #ff8e3c;
     border-radius: 3px;
 }
 

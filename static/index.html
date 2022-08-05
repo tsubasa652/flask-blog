@@ -7,6 +7,7 @@
     <title>Flask Blog</title>
     <link href="css/index.css" rel="stylesheet">
     <script src="js/index.js"></script>
+  　<link href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" rel="stylesheet">
     <script>
         window.addEventListener("load", function(){
             const Article = document.getElementById('article')
@@ -31,9 +32,11 @@
 </head>
 <body>
     <header class="flex">
-        <h1>Flask Blog</h1>
+        <a href="/">
+            <h1>Flask Blog</h1>
+        </a>
         <a class="new-article" href="/post.html">
-            <button>新規投稿</button>
+            <button><i class="fa-solid fa-plus"></i> 新規投稿</button>
         </a>
     </header>
     <main>
@@ -43,23 +46,23 @@
                     <div class="article-info flex">
                         <h2 class="article-title"></h2>
                         <div class="article-date">
-                            <label>作成日：</label>
+                            <label><i class="fa-solid fa-calendar"></i> 作成日：</label>
                             <span class="article-create"></span>
-                            <label>更新日：</label>
+                            <label><i class="fa-solid fa-arrows-rotate"></i> 更新日：</label>
                             <span class="article-update">----/--/--</span>
                         </div>
                     </div>
                     <p class="article-body-short"></p>
-                    <div class="flex article-detail">
-                        <a>続きを見る</a>
-                    </div>
                     <div class="article-footer flex">
                         <a class="edit">
-                            <button class="btn-edit">編集</button>
+                            <button class="btn-edit"><i class="fa-solid fa-pen"></i> 編集</button>
                         </a>
                         <a class="delete">
-                            <button class="btn-delete">削除</button>
+                            <button class="btn-delete"><i class="fa-solid fa-trash"></i> 削除</button>
                         </a>
+                        <div class="article-detail">
+                            <a><i class="fa-solid fa-arrow-right-to-bracket"></i> 続きを見る</a>
+                        </div>
                     </div>
                     <hr>
                 </div>
@@ -67,7 +70,7 @@
         </div>
     </main>
     <footer>
-        <p>Copyright © Year YourName All Rights Reserved.</p>
+        <p>Copyright © テルシバタ All Rights Reserved.</p>
     </footer>
 </body>
 </html>

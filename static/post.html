@@ -7,6 +7,7 @@
     <title>新規投稿 | Flask Blog</title>
     <link href="css/index.css" rel="stylesheet">
     <script src="js/index.js"></script>
+    <link href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" rel="stylesheet">
     <script>
         window.addEventListener("load", function(){
             const form = document.getElementById("article-form")
@@ -27,13 +28,15 @@
 </head>
 <body>
     <header class="flex">
-        <h1>Flask Blog</h1>
+        <a href="/">
+            <h1>Flask Blog</h1>
+        </a>
         <a class="new-article" href="/post.html">
-            <button>新規投稿</button>
+            <button><i class="fa-solid fa-plus"></i> 新規投稿</button>
         </a>
     </header>
     <main>
-        <h2 class="center-text">新規投稿</h2>
+        <h2 class="center-text"><i class="fa-solid fa-plus"></i> 新規投稿</h2>
         <form id="article-form">
             <div class="flex">
                 <label>タイトル：</label>
@@ -43,7 +46,7 @@
                 <label>本文：</label>
                 <textarea name="body" placeholder="本文を入力してください"></textarea>
             </div>
-            <button type="submit">投稿</button>
+            <button type="submit"><i class="fa-solid fa-file-arrow-up"></i> 投稿</button>
         </form>
     </main>
     <footer>

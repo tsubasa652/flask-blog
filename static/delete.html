@@ -7,6 +7,7 @@
     <title>記事の削除 | Flask Blog</title>
     <link href="css/index.css" rel="stylesheet">
     <script src="js/index.js"></script>
+    <link href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" rel="stylesheet">
     <script>
         function parseQuery(){
             var query = location.search.substring(1)
@@ -45,16 +46,21 @@
 </head>
 <body>
     <header class="flex">
-        <h1>Flask Blog</h1>
+        <a href="/">
+            <h1>Flask Blog</h1>
+        </a>
         <a class="new-article" href="/post.html">
-            <button>新規投稿</button>
+            <button><i class="fa-solid fa-plus"></i> 新規投稿</button>
         </a>
     </header>
     <main>
+        <div class="center-text info-icon">
+            <i class="fa-solid fa-circle-info"></i>
+        </div>
         <h2 class="center-text">本当に記事を削除してもよろしいですか？</h2>
         <div class="center-text">
-            <button id="delete_btn">削除</button>
-            <button id="cancel_btn">キャンセル</button>
+            <button id="delete_btn"><i class="fa-solid fa-trash"></i> 削除</button>
+            <button id="cancel_btn"><i class="fa-solid fa-circle-xmark"></i> キャンセル</button>
         </div>
     </main>
     <footer>
