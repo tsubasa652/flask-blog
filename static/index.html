@@ -8,25 +8,9 @@
     <link href="css/index.css" rel="stylesheet">
     <script src="js/index.js"></script>
     <script>
-        window.addEventListener("load", function(){
-            const Article = document.getElementById('article')
-            const Articles = document.getElementById('articles')
-            getArticles().then(articles => {
-                for(var article of articles){
-                    var article_div = Article.content.cloneNode(true)
-                    article_div.querySelector(".article-title").innerText = article.title
-                    article_div.querySelector(".article-body-short").innerText = article.body
-                    article_div.querySelector(".article-create").innerText = toDateString(article.created_at)
-                    if(article.updated_at != null){
-                        article_div.querySelector(".article-update").innerText = toDateString(article.updated_at)
-                    }
-                    article_div.querySelector(".article-detail a").href = "article.html?id=" + article.id
-                    article_div.querySelector(".edit").href = "update.html?id=" + article.id
-                    article_div.querySelector(".delete").href = "delete.html?id=" + article.id
-                    Articles.appendChild(article_div)
-                }
-            })
-        })
+        // ここにJavaScriptを書いていく
+
+        //　ここまで
     </script>
 </head>
 <body>

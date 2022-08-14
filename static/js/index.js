@@ -62,3 +62,14 @@ function toDateString(time) {
     var date = new Date(time * 1000)
     return date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate();
 }
+
+function parseQuery(){
+    var query = location.search.substring(1)
+    var params = query.split("&")
+    var result = {}
+    for(var param of params){
+        var key_value = param.split("=")
+        result[key_value[0]] = key_value[1]
+    }
+    return result
+}
