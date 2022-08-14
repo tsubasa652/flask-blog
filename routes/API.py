@@ -20,6 +20,9 @@ def post():
         if (title is None) or (body is None) or (title == "") or (body == ""):
             raise ArticlePostValueError("タイトルと本文を入力してください")
         
+        if lem(title) > 255:
+            raise ArticlePostValueError("タイトルの文字数が255文字を超えています。")
+        
         session = create_session()
         article = Article(
             title=title,
