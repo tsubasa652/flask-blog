@@ -1,4 +1,3 @@
-from email.policy import default
 from flask import Blueprint, jsonify, request
 import sys
 sys.path.append("../")
