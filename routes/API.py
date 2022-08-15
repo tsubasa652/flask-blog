@@ -68,7 +68,7 @@ def get_article(_id):
             "article": article.to_dict()
         })
     except ArticleNotFoundError as e:
-        print(ArticleNotFoundError)
+        print(e)
         return jsonify({
             "result": False,
             "message": "記事が存在しません"
