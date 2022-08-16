@@ -9,8 +9,8 @@
     <script src="js/index.js"></script>
     <script>
         window.addEventListener("load", function(){
-            const Article = document.getElementById('article')
-            const Articles = document.getElementById('articles')
+            var Article = document.getElementById('article')
+            var Articles = document.getElementById('articles')
             getArticles().then(articles => {
                 for(var article of articles){
                     var article_div = Article.content.cloneNode(true)

@@ -8,9 +8,9 @@
     <link href="css/index.css" rel="stylesheet">
     <script src="js/index.js"></script>
     <script>
-        const query = parseQuery()
+        var query = parseQuery()
         window.addEventListener("load", function(){
-            const form = document.getElementById("article-form")
+            var form = document.getElementById("article-form")
             if(!query["id"] || query["id"] == ""){
                 return location.href = "/"
             }
@@ -25,8 +25,8 @@
             })
             form.addEventListener("submit", function(e){
                 e.preventDefault()
-                const title = e.target.querySelector("input[name='title']").value
-                const body = e.target.querySelector("textarea[name='body']").value
+                var title = e.target.querySelector("input[name='title']").value
+                var body = e.target.querySelector("textarea[name='body']").value
                 updateArticle(query["id"], title, body).then(function(res){
                     if(res.result){
                         location.href = "/"

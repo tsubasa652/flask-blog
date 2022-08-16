@@ -8,9 +8,9 @@
     <link href="css/index.css" rel="stylesheet">
     <script src="js/index.js"></script>
     <script>
-        const query = parseQuery()
+        var query = parseQuery()
         window.addEventListener("load", function(){
-            const Article = document.getElementById('article')
+            var Article = document.getElementById('article')
             getArticle(query["id"]).then(res => {
                 if(res.result){
                     var article = res.article

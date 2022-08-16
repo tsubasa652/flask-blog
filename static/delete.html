@@ -8,10 +8,10 @@
     <link href="css/index.css" rel="stylesheet">
     <script src="js/index.js"></script>
     <script>
-        const query = parseQuery()
+        var query = parseQuery()
         window.addEventListener("load", function(){
-            const delete_btn = document.getElementById("delete_btn")
-            const cancel_btn = document.getElementById("cancel_btn")
+            var delete_btn = document.getElementById("delete_btn")
+            var cancel_btn = document.getElementById("cancel_btn")
             if(!query["id"]){
                 return location.href = "/"
             }
