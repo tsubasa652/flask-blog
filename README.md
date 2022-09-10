@@ -1,4 +1,4 @@
-# flask-blog
+# Flask-Blog
 
 Minimal blog with Flask
 
