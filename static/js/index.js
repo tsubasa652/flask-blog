@@ -60,6 +60,7 @@ function deleteArticle(id){
 
 function toDateString(time) {
     var date = new Date(time * 1000)
+    date.setHours(date.getHours() + 9)
     return date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate();
 }
 
