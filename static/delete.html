@@ -9,20 +9,10 @@
     <script src="js/index.js"></script>
     <link href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" rel="stylesheet">
     <script>
-        function parseQuery(){
-            var query = location.search.substring(1)
-            var params = query.split("&")
-            var result = {}
-            for(var param of params){
-                var key_value = param.split("=")
-                result[key_value[0]] = key_value[1]
-            }
-            return result
-        }
-        const query = parseQuery()
+        var query = parseQuery()
         window.addEventListener("load", function(){
-            const delete_btn = document.getElementById("delete_btn")
-            const cancel_btn = document.getElementById("cancel_btn")
+            var delete_btn = document.getElementById("delete_btn")
+            var cancel_btn = document.getElementById("cancel_btn")
             if(!query["id"]){
                 return location.href = "/"
             }

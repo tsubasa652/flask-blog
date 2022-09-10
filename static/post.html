@@ -10,11 +10,11 @@
     <link href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" rel="stylesheet">
     <script>
         window.addEventListener("load", function(){
-            const form = document.getElementById("article-form")
+            var form = document.getElementById("article-form")
             form.addEventListener("submit", function(e){
                 e.preventDefault()
-                const title = e.target.querySelector("input[name='title']").value
-                const body = e.target.querySelector("textarea[name='body']").value
+                var title = e.target.querySelector("input[name='title']").value
+                var body = e.target.querySelector("textarea[name='body']").value
                 postArticle(title, body).then(function(res){
                     if(res.result){
                         location.href = "/"
