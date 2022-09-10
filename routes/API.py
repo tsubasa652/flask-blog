@@ -20,6 +20,9 @@ def post():
         if (title is None) or (body is None) or (title == "") or (body == ""):
             raise ArticlePostValueError("タイトルと本文を入力してください")
         
+        if len(title) > 255:
+            raise ArticlePostValueError("タイトルの文字数が255文字を超えています。")
+        
         session = create_session()
         article = Article(
             title=title,
@@ -65,7 +68,7 @@ def get_article(_id):
             "article": article.to_dict()
         })
     except ArticleNotFoundError as e:
-        print(ArticleNotFoundError)
+        print(e)
         return jsonify({
             "result": False,
             "message": "記事が存在しません"
@@ -89,6 +92,11 @@ def update():
 
         if (title is None) and (body is None) or (title == "") and (body == ""):
             raise ArticlePostValueError("タイトルと本文を入力してください")
+
+        if title:
+            if len(title) > 255:
+                raise ArticlePostValueError("タイトルの文字数が255文字を超えています。")
+        
         
         session = create_session()
         article = session.query(Article).filter(Article.id == _id).first()
@@ -126,12 +134,12 @@ def update():
 @router.route("/delete", methods=["DELETE"])
 def delete():
     try:
-        session = create_session()
         _id = request.form.get("id", None, type=int)
 
         if _id is None:
             raise ArticlePostValueError("IDを入力してください")
 
+        session = create_session()
         article = session.query(Article).filter(Article.id == _id).first()
         if article is None:
             raise ArticleNotFoundError("記事が見つかりません")
