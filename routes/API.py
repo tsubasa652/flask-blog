@@ -134,12 +134,12 @@ def update():
 @router.route("/delete", methods=["DELETE"])
 def delete():
     try:
-        session = create_session()
         _id = request.form.get("id", None, type=int)
 
         if _id is None:
             raise ArticlePostValueError("IDを入力してください")
 
+        session = create_session()
         article = session.query(Article).filter(Article.id == _id).first()
         if article is None:
             raise ArticleNotFoundError("記事が見つかりません")
